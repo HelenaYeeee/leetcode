@@ -17,3 +17,22 @@ class Solution:
             j += 1
         
         return prefix 
+
+
+# leetcode's solution: 
+# another way is to set the prefix candidate to be the first word,
+# then keep reducing it until it matches the start of all words
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if len(strs) == 0:
+            return ""
+        prefix = strs[0]
+        for i in range(1, len(strs)):
+            while strs[i].find(prefix) != 0:
+                prefix = prefix[0 : len(prefix) - 1]
+                if prefix == "":
+                    return ""
+        return prefix
+
+# there are other approaches too, like BFS, but it is unnecessarily complex for this problem 
