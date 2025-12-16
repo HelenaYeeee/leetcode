@@ -23,6 +23,8 @@ class Solution:
 # sol 2 (best)
 # using hash table (dict) so that we only do one-pass over the nums list
 # the intuition comes from sol 3, which is a variant of cumulative sum
+# This is difficult to come up if you don't know the solution beforehand, 
+# I only expect you to come up with sol 3 in interview at its best
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         hashmap = {}
@@ -34,9 +36,16 @@ class Solution:
         for i in range(len(nums)):
             PrefixSum += nums[i]
             if PrefixSum - k in hashmap.keys():
-                # note: add count by frequency of (PrefixSum - k), not by 1! 
-                # this if statement can't be placed after the if else below, failed test case: nums=[1], k = 0
                 count += hashmap.get(PrefixSum - k) 
+                # note #1: add count by frequency of (PrefixSum - k), not by 1! 
+                # Q: why? 
+                # A: 
+                # The frequency of (PrefixSum - k) = how many subarrays before index i have cumulative sum = PrefixSum - k,
+                # meaning the number of subarrays that satisfies the condition that we look for 
+                # since element in array can be 0 or negative, we can have multiple answers for the same index i 
+
+                # note #2: this if statement can't be placed after the if else below, failed test case: nums=[1], k = 0
+                
             if PrefixSum not in hashmap.keys():
                 hashmap.update({PrefixSum:1})
             else: 
