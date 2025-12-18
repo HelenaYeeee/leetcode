@@ -60,6 +60,7 @@ class Solution:
 # sol 3: cumulative sum 
 # two pass using culmulative sum 
 # in cul_sum, the ith element should be the culmulative sum of all element up to (i-1)th element  
+# still timed out
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         # create an list of cumulative sum 
