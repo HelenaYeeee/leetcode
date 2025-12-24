@@ -1,3 +1,10 @@
+# sol 1. finding depth of nodes (best)
+# ref: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii/solutions/1233986/python-find-depth-difference-explanation-w0la 
+
+# time complexity: O(n) where n = depth of tree
+# space complexity: O(1) becasue we didn't initialize any data structure 
+
+
 """
 # Definition for a Node.
 class Node:
@@ -47,5 +54,34 @@ class Solution:
             q = q.parent 
         
         return p # do not return p.val! The function declaration expects the output as type "Node"
+
+
+# sol 2. use a set to store all nodes from p to root,
+# then compare with all nodes from q to root
+# the LCA will be the first common node between the two 
+
+# time complexity: O(n) where n = depth of tree 
+# space complexity: O(n) because of the set
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+        self.parent = None
+"""
+
+class Solution:
+    def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
+        path = set()
+
+        while p: 
+            path.add(p)
+            p = p.parent
+        
+        while q not in path: 
+            q = q.parent
+        return q 
 
 

@@ -1,2 +1,4 @@
-for i in range(-1):
-    print("test")
+fruits = [4, 55, 64, 32, 16, 32]
+
+x = fruits.index(33232)
+print(x)
