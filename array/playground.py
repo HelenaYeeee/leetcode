@@ -1,4 +1,8 @@
-fruits = [4, 55, 64, 32, 16, 32]
-
-x = fruits.index(33232)
-print(x)
+a = True 
+b = False
+if a: 
+    print("first if is executed")
+if a == 3: 
+    print("second if is executed")
+else: 
+    print("else is executed")
