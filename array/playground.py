@@ -1,8 +1,3 @@
-a = True 
-b = False
-if a: 
-    print("first if is executed")
-if a == 3: 
-    print("second if is executed")
-else: 
-    print("else is executed")
+test = {1:2, 3:5, 5:2}
+element_counter = sorted(test.items(), key=lambda x: (x[1], x[0]), reverse = True)
+print(dict(element_counter))
